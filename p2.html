@@ -1,0 +1,372 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Deepesh Dagar - Portfolio</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/js/all.min.js"></script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&display=swap');
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Roboto', sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background-color: #f4f4f4;
+        }
+
+        .container {
+            max-width: 1100px;
+            margin: auto;
+            padding: 0 20px;
+        }
+
+        header {
+            background: linear-gradient(to right, #2c3e50, #3498db);
+            color: #fff;
+            padding: 1rem 0;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+        }
+
+        header .container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        header h1 {
+            font-size: 2rem;
+            letter-spacing: 2px;
+        }
+
+        nav ul {
+            display: flex;
+            list-style: none;
+        }
+
+        nav ul li {
+            margin-left: 20px;
+        }
+
+        nav ul li a {
+            color: #fff;
+            text-decoration: none;
+            padding: 0.5rem 1rem;
+            border-radius: 5px;
+            transition: background 0.3s ease;
+        }
+
+        nav ul li a:hover {
+            background-color: rgba(255, 255, 255, 0.1);
+        }
+
+        .hero {
+            background: url('https://source.unsplash.com/1600x900/?coding') no-repeat center center/cover;
+            color: #fff;
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            padding: 0 20px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero:before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.5);
+            z-index: 0;
+        }
+
+        .hero-content {
+            max-width: 600px;
+            z-index: 1;
+            opacity: 0;
+            transform: translateY(20px);
+            animation: fadeInUp 1s ease forwards;
+        }
+
+        .hero h2 {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+            letter-spacing: 3px;
+        }
+
+        .hero p {
+            font-size: 1.5rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .btn {
+            display: inline-block;
+            background: #e74c3c;
+            color: #fff;
+            padding: 0.75rem 1.5rem;
+            text-decoration: none;
+            border-radius: 5px;
+            transition: background 0.3s ease, transform 0.3s ease;
+        }
+
+        .btn:hover {
+            background: #c0392b;
+            transform: translateY(-3px);
+        }
+
+        section {
+            padding: 5rem 0;
+            position: relative;
+        }
+
+        section h2 {
+            text-align: center;
+            margin-bottom: 3rem;
+            font-size: 2.5rem;
+            position: relative;
+            z-index: 1;
+        }
+
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            grid-gap: 2rem;
+        }
+
+        .card {
+            background: #fff;
+            padding: 1.5rem;
+            border-radius: 5px;
+            border-left: 3px solid #3498db;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+        }
+
+        .card h3 {
+            margin-bottom: 1rem;
+        }
+
+        .card ul {
+            margin-top: 0.5rem;
+        }
+
+        .illustration {
+            position: absolute;
+            top: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 90%;
+            max-width: 800px;
+            opacity: 0.05;
+            z-index: 0;
+        }
+
+        footer {
+            background: #34495e;
+            color: #ecf0f1;
+            text-align: center;
+            padding: 2rem 0;
+        }
+
+        footer a {
+            color: #ecf0f1;
+            text-decoration: none;
+        }
+
+        footer a:hover {
+            text-decoration: underline;
+        }
+
+        @keyframes fadeInUp {
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .section-content {
+            opacity: 0;
+            transform: translateY(20px);
+            transition: opacity 0.5s ease, transform 0.5s ease;
+        }
+
+        .section-content.show {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <h1>Deepesh Dagar</h1>
+            <nav>
+                <ul>
+                    <li><a href="#about">About</a></li>
+                    <li><a href="#experience">Experience</a></li>
+                    <li><a href="#projects">Projects</a></li>
+                    <li><a href="#skills">Skills</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <section class="hero">
+        <div class="hero-content">
+            <h2>Deepesh Dagar</h2>
+            <p>Aspiring Junior Developer | MCA Student</p>
+            <a href="https://drive.google.com/file/d/1IEynRkGUTSsSWU_GANNugNmSVkYrg3P4/view?usp=sharing" class="btn" download>Get Resume</a>
+        </div>
+    </section>
+
+    <section id="about">
+        <img src="https://cdn.svgporn.com/logos/programming.svg" alt="Illustration" class="illustration">
+        <div class="container section-content">
+            <h2>About Me</h2>
+            <p>Motivated computer science student seeking a junior developer internship to apply and expand programming skills. Proficient in Python, Django, PHP, MySQL. Strong adapting abilities and eager to learn in a professional environment.</p>
+        </div>
+    </section>
+
+    <section id="experience">
+        <img src="https://cdn.svgporn.com/logos/experience.svg" alt="Illustration" class="illustration">
+        <div class="container section-content">
+            <h2>Experience</h2>
+            <div class="grid">
+                <div class="card">
+                    <h3>Data Assistant</h3>
+                    <p>Tax Consultancy Firm (Private)</p>
+                    <p>May 2022 - July 2022</p>
+                    <ul>
+                        <li>Maintained customer records, created new records, debugged records</li>
+                        <li>Software used: Tally Prime</li>
+                    </ul>
+                </div>
+                <div class="card">
+                    <h3>Process Associate / Delivery Associate</h3>
+                    <p>OneWorld Logistics</p>
+                    <p>June 2020 - July 2022</p>
+                    <ul>
+                        <li>Maintained records of parcels using MS Excel</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="projects">
+        <img src="https://cdn.svgporn.com/logos/projects.svg" alt="Illustration" class="illustration">
+        <div class="container section-content">
+            <h2>Projects</h2>
+            <div class="grid">
+                <div class="card">
+                    <h3>Virtual Dashboard</h3>
+                    <p>Data Science Project</p>
+                    <p>Tech: Python, Pandas, Scikit-learn, Tableau, Jupyter Notebook</p>
+                    <ul>
+                        <li>Developed a predictive model for stock prices using historical data and machine learning algorithms</li>
+                        <li>Created visualizations to present predictions and insights effectively</li>
+                    </ul>
+                </div>
+                <div class="card">
+                    <h3>Student Management System</h3>
+                    <p>Web Development Project</p>
+                    <p>Tech: Django, Bootstrap, PostgreSQL</p>
+                    <ul>
+                        <li>Developed a web application to manage student data efficiently</li>
+                        <li>Implemented features such as attendance tracking, grade management, and more</li>
+                    </ul>
+                </div>
+                <div class="card">
+                    <h3>Hotel Management Website</h3>
+                    <p>Web Development Project</p>
+                    <p>Tech: HTML, CSS, JavaScript, Bootstrap, PHP</p>
+                    <ul>
+                        <li>Used Bootstrap for front-end design and PHP for back-end processing</li>
+                        <li>Incorporated booking, cancellation, and customer review features</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="skills">
+        <img src="https://cdn.svgporn.com/logos/skills.svg" alt="Illustration" class="illustration">
+        <div class="container section-content">
+            <h2>Skills</h2>
+            <div class="grid">
+                <div class="card">
+                    <h3>Front-End Development</h3>
+                    <p>HTML, CSS, JavaScript, Bootstrap, Tailwind CSS</p>
+                </div>
+                <div class="card">
+                    <h3>Back-End Development</h3>
+                    <p>Django, Angular, Node.js, Express.js, PHP</p>
+                </div>
+                <div class="card">
+                    <h3>Database Management</h3>
+                    <p>PostgreSQL, MySQL</p>
+                </div>
+                <div class="card">
+                    <h3>Data Science & ML</h3>
+                    <p>Python, Pandas, Scikit-learn, Jupyter Notebook</p>
+                </div>
+                <div class="card">
+                    <h3>Other Skills</h3>
+                    <p>MS-Office, Git</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <p>&copy; 2024 Deepesh Dagar. All Rights Reserved.</p>
+        <p>
+            <a href="mailto:dipeshdagar9@gmail.com"><i class="fas fa-envelope"></i> Email</a> | 
+            <a href="https://www.linkedin.com/in/deepesh-dagar-45a389186" target="_blank"><i class="fab fa-linkedin"></i> LinkedIn</a> | 
+            <a href="https://github.com/DeepeshD23" target="_blank"><i class="fab fa-github"></i> GitHub</a>
+        </p>
+    </footer>
+
+    <script>
+        // Fade-in animation for section content
+        document.addEventListener('DOMContentLoaded', function() {
+            const sections = document.querySelectorAll('.section-content');
+            const options = {
+                threshold: 0.5
+            };
+
+            const observer = new IntersectionObserver(function(entries, observer) {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('show');
+                        observer.unobserve(entry.target);
+                    }
+                });
+            }, options);
+
+            sections.forEach(section => {
+                observer.observe(section);
+            });
+        });
+    </script>
+</body>
+</html>
